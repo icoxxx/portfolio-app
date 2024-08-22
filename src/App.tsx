@@ -1,16 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 
 import {About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas,} from './components';
-import Intro from "./components/Intro";
-import { useHasOpenedBefore } from "./utils/HasOpenedContext";
 
 function App() {
-  const {hasOpened} = useHasOpenedBefore();
   return (
     <>
-      {!hasOpened && (
-        <Intro/>
-      )}
       <BrowserRouter>
       <div className="relative z-0 bg-primary">
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
