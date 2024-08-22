@@ -19,6 +19,8 @@ import {
     eternity,
     gerenaApp,
     portfolio,
+    nextjs,
+    yavorm
   } from "../assets";
   
   export const navLinks = [
@@ -77,6 +79,10 @@ import {
       icon: reactjs,
     },
     {
+      name: "Next JS",
+      icon: nextjs,
+    },
+    {
       name: "Redux Toolkit",
       icon: redux,
     },
@@ -103,6 +109,18 @@ import {
   ];
   
   const experiences = [
+    {
+      title: "NextJS / FullStack Developer",
+      company_name: "YavorM-Events | Freelance",
+      icon: yavorm,
+      iconBg: "#383E56",
+      date: "Jun 2024 - Now",
+      points: [
+        "NextJS/TypeScript/MongoDB project developed for a client as a part of my freelance work.",
+        "It includes features like Admin Panel, Server side rendering, 3D Graph, User Roles, Password Hashing, Sending mails, Managing content (CRUD) in real-time, Password resetting through email, SEO optimization ++ many more.",
+        'Developing and maintaining Frontend of the app using Next.js and other related technologies.',
+      ]
+    },
     {
       title: "React.js Developer",
       company_name: "Gerena.bg | Freelance",
@@ -145,6 +163,26 @@ import {
   
   
   const projects = [
+    {
+      name: "YavorM-Events",
+      description: "Web app with features like Admin Panel, SSR, 3D Graph, User Roles, Password Hashing, Sending mails, Managing content (CRUD) in real-time, Responsive design +++ more.",
+      tags: [
+        {
+          name: 'nextjs',
+          color: "blue-text-gradient",
+        }
+        ,{
+          name: 'typescript',
+          color: "green-text-gradient",
+        }
+        ,{
+          name: 'fullstack',
+          color: "pink-text-gradient",
+        }
+      ],
+      image: yavorm,
+      source_code_link: 'https://github.com/icoxxx/yavorm-public',
+    },
     {
       name: "Gerena.bg",
       description:

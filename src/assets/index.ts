@@ -28,6 +28,8 @@ import eternity from './company/eternity.png';
 
 import gerenaApp from './gerenaApp.png';
 import portfolio from './portfolio.png';
+import nextjs from './tech/nextjs-icon.png';
+import yavorm from './YavorM.png';
 
 export {
   logo,
@@ -56,4 +58,6 @@ export {
   advance,
   eternity,
   portfolio,
+  nextjs,
+  yavorm
 };
