@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { motion } from "framer-motion";
 
@@ -6,10 +6,26 @@ import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
   return (
-    <section className={`relative w-full h-screen mx-auto`}>
+    <section className={isMobile ? `relative w-full mx-auto flex flex-col justify-evenly` : `relative w-full h-screen mx-auto`} style={isMobile ? { height: "calc(100vh - 100px)" } : {}}>
       <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+        className={` ${isMobile ? 'relative' : 'absolute'} inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
       >
         <div className='flex flex-col justify-center items-center mt-5'>
           <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
@@ -27,10 +43,11 @@ const Hero = () => {
         </div>
       </div>
 
-      <ComputersCanvas />
+      {isMobile && (<ComputersCanvas isMobile={isMobile}/>)}
+      {!isMobile && (<ComputersCanvas isMobile={isMobile}/>)}
 
-      <div className='absolute xs:bottom-2 bottom-2 w-full flex justify-center items-center'>
-        <a href='#about'>
+      <div className={`${isMobile ? 'relative' : 'absolute'} xs:bottom-2 bottom-2 w-full flex justify-center items-center`}>
+        <a href='#about' className={`z-10`}>
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
             <motion.div
               animate={{
